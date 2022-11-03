@@ -1,4 +1,4 @@
-.example-spacer {
+.spacer {
   flex: 1 1 auto;
 }
 
@@ -6,38 +6,13 @@ nav {
   height: 64px;
 }
 
-.user-info {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-
-  .avatar-img-container {
-    padding: 1rem;
-    position: relative;
-    img {
-      vertical-align: middle;
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      margin-right: 1rem;
-    }
-    &::after {
-      content: "";
-      width: 1px;
-      background-color: white;
-      display: inline-block;
-      position: absolute;
-      top: 10px;
-      bottom: 10px;
-    }
-  }
-}
-
 mat-form-field.search-form-field {
   font-size: 1px;
   width: 20vw;
+
+  & > :hover {
+    border: 1px solid red;
+  }
 
   mat-label {
     font-size: 0.8rem;
@@ -48,6 +23,7 @@ mat-form-field.search-form-field {
   input {
     font-size: 1rem;
     color: white;
+
     &::placeholder {
       color: white;
       font-size: 0.75rem;
@@ -56,6 +32,47 @@ mat-form-field.search-form-field {
   button {
     mat-icon {
       font-size: 1.25rem;
+    }
+  }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  img {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  mat-divider {
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  .user-info-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    h3,
+    p {
+      margin: 0;
+      line-height: 1.1rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      color: #ebebeb;
+    }
+    p {
+      font-size: 0.75rem;
+      color: #dddddd;
     }
   }
 }
