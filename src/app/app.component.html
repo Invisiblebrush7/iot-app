@@ -1,5 +1,11 @@
-<!-- <app-navbar></app-navbar> -->
-<app-sidebar></app-sidebar>
-<main>
+<app-navbar (sendSidebarStatusEvent)="navbarToggle()"></app-navbar>
+<app-sidebar [collapsed]="!sidenavOpened"> </app-sidebar>
+<main
+  [ngClass]="
+    this.sidenavOpened
+      ? 'container container-collapsed'
+      : 'container container-full'
+  "
+>
   <router-outlet></router-outlet>
 </main>

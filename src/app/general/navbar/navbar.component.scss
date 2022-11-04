@@ -3,7 +3,15 @@
 }
 
 nav {
+  height: 64px !important;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+.mat-toolbar-single-row {
   height: 64px;
+  // Media query changes this value to 54px, thats why I use it here manually
 }
 
 mat-form-field.search-form-field {

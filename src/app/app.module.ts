@@ -6,10 +6,12 @@ import { AppComponent } from './app.component';
 import { SidebarComponent } from './general/sidebar/sidebar.component';
 import { MaterialModule } from './general/material/material.module';
 import { NavbarComponent } from './general/navbar/navbar.component';
+import { LayoutModule } from '@angular/cdk/layout';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
 
 @NgModule({
-  declarations: [AppComponent, SidebarComponent, NavbarComponent],
-  imports: [BrowserModule, AppRoutingModule, MaterialModule],
+  declarations: [AppComponent, SidebarComponent, NavbarComponent, DashboardComponent],
+  imports: [BrowserModule, AppRoutingModule, MaterialModule, LayoutModule],
   providers: [],
   bootstrap: [AppComponent],
 })

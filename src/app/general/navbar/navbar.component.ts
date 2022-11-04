@@ -1,15 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent implements OnInit {
+  sidebarIsOpened: boolean = true;
 
-  constructor() { }
+  @Output() sendSidebarStatusEvent: EventEmitter<boolean> =
+    new EventEmitter<boolean>();
 
-  ngOnInit(): void {
+  sidenavToggle() {
+    this.sidebarIsOpened = !this.sidebarIsOpened;
+    this.sendSidebarStatusEvent.emit(this.sidebarIsOpened);
   }
 
+  constructor() {}
+
+  ngOnInit(): void {}
 }
+// *ngIf="this.sidebarIsOpened"

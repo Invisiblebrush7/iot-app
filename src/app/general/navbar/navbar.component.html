@@ -1,9 +1,11 @@
 <nav>
   <mat-toolbar color="primary">
-    <button mat-icon-button aria-label="Menu icon button">
-      <mat-icon>menu</mat-icon>
+    <button mat-icon-button (click)="sidenavToggle()">
+      <mat-icon *ngIf="!this.sidebarIsOpened"> menu </mat-icon>
+      <mat-icon *ngIf="this.sidebarIsOpened"> close </mat-icon>
     </button>
-    <span>Logo</span>
+
+    <span>Bienvenido</span>
     <span class="spacer"></span>
 
     <form action="/">
