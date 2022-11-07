@@ -1,6 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
+import { Subject } from 'rxjs';
+import { takeUntil } from 'rxjs/operators';
 
 import { default as Annotation } from 'chartjs-plugin-annotation';
 
@@ -9,9 +12,47 @@ import { default as Annotation } from 'chartjs-plugin-annotation';
   templateUrl: './income-chart.component.html',
   styleUrls: ['./income-chart.component.scss'],
 })
-export class IncomeChartComponent {
-  constructor() {
+export class IncomeChartComponent implements OnDestroy {
+  width: any = '';
+  height: any = '';
+
+  currentScreenSize: string = '';
+  destroyed = new Subject<void>();
+
+  // Create a map to display breakpoint names for demonstration purposes.
+  widthOfChart = new Map([
+    [Breakpoints.XSmall, '340'],
+    [Breakpoints.Small, '500'],
+    [Breakpoints.Medium, '800'],
+    [Breakpoints.Large, '1000'],
+    [Breakpoints.XLarge, '1200'],
+  ]);
+
+  constructor(private breakpointObserver: BreakpointObserver) {
     Chart.register(Annotation);
+    // breakpointObserver
+    //   .observe([
+    //     Breakpoints.XSmall,
+    //     Breakpoints.Small,
+    //     Breakpoints.Medium,
+    //     Breakpoints.Large,
+    //     Breakpoints.XLarge,
+    //   ])
+    //   .pipe(takeUntil(this.destroyed))
+    //   .subscribe((result) => {
+    //     for (const query of Object.keys(result.breakpoints)) {
+    //       if (result.breakpoints[query]) {
+    //         this.currentScreenSize = this.widthOfChart.get(query) ?? 'Unknown';
+    //       }
+    //       if (result.breakpoints[query]) {
+    //         this.width = this.widthOfChart.get(query) ?? '300';
+    //       }
+    //     }
+    //   });
+  }
+  ngOnDestroy() {
+    this.destroyed.next();
+    this.destroyed.complete();
   }
 
   public lineChartData: ChartConfiguration['data'] = {
