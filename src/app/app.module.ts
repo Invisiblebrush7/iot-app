@@ -8,10 +8,24 @@ import { MaterialModule } from './general/material/material.module';
 import { NavbarComponent } from './general/navbar/navbar.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { NgChartsModule } from 'ng2-charts';
+import { IncomeChartComponent } from './charts/income-chart/income-chart.component';
 
 @NgModule({
-  declarations: [AppComponent, SidebarComponent, NavbarComponent, DashboardComponent],
-  imports: [BrowserModule, AppRoutingModule, MaterialModule, LayoutModule],
+  declarations: [
+    AppComponent,
+    SidebarComponent,
+    NavbarComponent,
+    DashboardComponent,
+    IncomeChartComponent,
+  ],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    MaterialModule,
+    LayoutModule,
+    NgChartsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
