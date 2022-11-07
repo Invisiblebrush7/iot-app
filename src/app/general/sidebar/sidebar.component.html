@@ -1,0 +1,16 @@
+<div class="sidenav" [ngClass]="!this.collapsed ? 'sidenav-collapsed' : ''">
+  <div class="logo-container">
+    <span class="logo">L</span>
+    <div class="logo-text" *ngIf="!this.collapsed">Leany</div>
+  </div>
+  <ul class="sidenav-nav">
+    <li class="sidenav-item" *ngFor="let data of navData">
+      <a class="sidenav-link" routerLink="{{ data.routerLink }}">
+        <mat-icon class="sidenav-icon" matSuffix>{{ data.icon }}</mat-icon>
+        <span class="sidenav-text" *ngIf="!this.collapsed">{{
+          data.label
+        }}</span>
+      </a>
+    </li>
+  </ul>
+</div>

@@ -1,0 +1,51 @@
+<nav>
+  <mat-toolbar color="primary">
+    <button mat-icon-button (click)="sidenavToggle()">
+      <mat-icon *ngIf="!this.sidebarIsOpened"> menu </mat-icon>
+      <mat-icon *ngIf="this.sidebarIsOpened"> close </mat-icon>
+    </button>
+
+    <span>Bienvenido</span>
+    <span class="spacer"></span>
+
+    <form action="/">
+      <mat-form-field class="search-form-field" appearance="outline">
+        <mat-label>Buscar casas y tickets</mat-label>
+        <input matInput placeholder="Ex. 1133" name="query" />
+
+        <button mat-icon-button color="white" aria-label="Search icon button">
+          <mat-icon matSuffix>search</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+
+    <span class="spacer"></span>
+
+    <button
+      mat-icon-button
+      class="example-icon favorite-icon"
+      aria-label="Example icon-button with heart icon"
+    >
+      <mat-icon>favorite</mat-icon>
+    </button>
+    <button
+      mat-icon-button
+      class="example-icon"
+      aria-label="Example icon-button with share icon"
+    >
+      <mat-icon>share</mat-icon>
+    </button>
+
+    <div class="user-info">
+      <img
+        src="https://images.unsplash.com/photo-1578133507770-a35cc3c786e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
+        alt="Avatar img"
+      />
+      <mat-divider [vertical]="true"></mat-divider>
+      <div class="user-info-text">
+        <h3>Alberto Romano</h3>
+        <p>Admin</p>
+      </div>
+    </div>
+  </mat-toolbar>
+</nav>

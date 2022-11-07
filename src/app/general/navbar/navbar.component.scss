@@ -1,0 +1,86 @@
+.spacer {
+  flex: 1 1 auto;
+}
+
+nav {
+  height: 64px !important;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.5);
+}
+.mat-toolbar-single-row {
+  height: 64px;
+  // Media query changes this value to 54px, thats why I use it here manually
+}
+
+mat-form-field.search-form-field {
+  font-size: 1px;
+  width: 20vw;
+
+  & > :hover {
+    border: 1px solid red;
+  }
+
+  mat-label {
+    font-size: 0.8rem;
+    opacity: 0.75;
+    line-height: 2.5rem;
+    padding-left: 0.5rem;
+  }
+  input {
+    font-size: 1rem;
+    color: white;
+
+    &::placeholder {
+      color: white;
+      font-size: 0.75rem;
+    }
+  }
+  button {
+    mat-icon {
+      font-size: 1.25rem;
+    }
+  }
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+
+  img {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  mat-divider {
+    height: 50%;
+    background-color: rgba(255, 255, 255, 0.5);
+    margin-right: 0.5rem;
+    margin-left: 0.5rem;
+  }
+  .user-info-text {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+
+    h3,
+    p {
+      margin: 0;
+      line-height: 1.1rem;
+    }
+
+    h3 {
+      font-size: 1rem;
+      color: #ebebeb;
+    }
+    p {
+      font-size: 0.75rem;
+      color: #dddddd;
+    }
+  }
+}
