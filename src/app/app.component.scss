@@ -1,17 +1,13 @@
-// TODO: Whenever the size of screen is small, sidebar shouldnt push the content
-
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
   box-sizing: border-box;
 
-  padding: 1rem;
-
-  transition: all 0.4s ease;
+  transition: all 0.5s ease-in-out;
 }
 .container-collapsed {
-  width: calc(100% - 16rem);
+  width: calc(100vw - 16.1rem);
   margin: {
     top: 6rem;
     left: 16rem;
@@ -19,10 +15,21 @@
   }
 }
 .container-full {
-  width: calc(100% - 6rem);
+  width: calc(100vw - 6.1rem);
   margin: {
     top: 6rem;
     left: 6rem;
     bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 700px) {
+  .container-full {
+    width: 80%;
+    margin: 6rem auto;
+    padding: 0rem;
+  }
+  .container-collapsed {
+    overflow: hidden;
   }
 }
