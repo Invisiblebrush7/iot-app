@@ -1,4 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { User } from 'src/app/shared/interfaces/user';
+import { ApiService } from 'src/app/shared/services/api.service';
 
 @Component({
   selector: 'app-navbar',
@@ -20,4 +23,3 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {}
 }
-// *ngIf="this.sidebarIsOpened"

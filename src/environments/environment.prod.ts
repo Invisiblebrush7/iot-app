@@ -1,3 +1,4 @@
 export const environment = {
-  production: true
+  production: true,
+  apiUrl: 'https://iot-api-team-3.herokuapp.com/',
 };

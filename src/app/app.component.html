@@ -1,10 +1,18 @@
-<app-navbar (sendSidebarStatusEvent)="navbarToggle()"></app-navbar>
-<app-sidebar [collapsed]="!sidenavOpened"> </app-sidebar>
+<app-navbar
+  *ngIf="shouldNavbarBeShowned"
+  (sendSidebarStatusEvent)="navbarToggle()"
+></app-navbar>
+<app-sidebar
+  *ngIf="shouldNavbarBeShowned"
+  [collapsed]="!sidenavOpened"
+></app-sidebar>
 <main
   [ngClass]="
-    this.sidenavOpened
-      ? 'container container-collapsed'
-      : 'container container-full'
+    this.shouldNavbarBeShowned
+      ? this.sidenavOpened
+        ? 'container container-collapsed'
+        : 'container container-full'
+      : 'container'
   "
 >
   <router-outlet></router-outlet>
