@@ -1,6 +1,7 @@
-import { Component, ViewChild } from '@angular/core';
+import { Component, OnDestroy, ViewChild } from '@angular/core';
 import { Chart, ChartConfiguration, ChartEvent, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
+import { Subject } from 'rxjs';
 
 import { default as Annotation } from 'chartjs-plugin-annotation';
 
@@ -9,9 +10,15 @@ import { default as Annotation } from 'chartjs-plugin-annotation';
   templateUrl: './income-chart.component.html',
   styleUrls: ['./income-chart.component.scss'],
 })
-export class IncomeChartComponent {
+export class IncomeChartComponent implements OnDestroy {
+  destroyed = new Subject<void>();
+
   constructor() {
     Chart.register(Annotation);
+  }
+  ngOnDestroy() {
+    this.destroyed.next();
+    this.destroyed.complete();
   }
 
   public lineChartData: ChartConfiguration['data'] = {
@@ -104,6 +111,4 @@ export class IncomeChartComponent {
   };
 
   public lineChartType: ChartType = 'line';
-
-  @ViewChild(BaseChartDirective) chart?: BaseChartDirective;
 }
