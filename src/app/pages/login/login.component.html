@@ -1,1 +1,32 @@
-<p>login works!</p>
+<div class="login-page-background">
+  <div class="card-container">
+    <div class="card-content">
+      <h1>Bienvenido</h1>
+      <div class="logo-container">
+        <span class="logo">L</span>
+        <div class="logo-text">Smart Racket</div>
+      </div>
+
+      <div class="form-container">
+        <form action="/">
+          <mat-form-field class="mat-form-full-width">
+            <mat-label>Email</mat-label>
+            <input matInput placeholder="Email" />
+          </mat-form-field>
+
+          <mat-form-field class="mat-form-full-width">
+            <mat-label>Contraseña</mat-label>
+            <input matInput placeholder="Contraseña" />
+          </mat-form-field>
+
+          <button>LOGIN</button>
+
+          <div class="new-account-content">
+            <p>¿No tienes una cuenta?</p>
+            <a routerLink="sign_up">Regístrate <strong>gratis</strong></a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
