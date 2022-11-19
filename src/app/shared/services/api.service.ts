@@ -18,7 +18,7 @@ export class ApiService {
 
   constructor(private httpClient: HttpClient) {}
 
-  getUser(): Observable<Object> {
+  getUserInfo(): Observable<Object> {
     return this.httpClient.get(environment.apiUrl + '/my_account');
   }
 

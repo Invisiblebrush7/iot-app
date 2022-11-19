@@ -4,6 +4,7 @@ import { IncomeChartComponent } from './charts/income-chart/income-chart.compone
 import { DashboardComponent } from './pages/dashboard/dashboard.component';
 import { LoginComponent } from './pages/login/login.component';
 
+// TODO: Add guards to protected routes
 const routes: Routes = [
   { path: '', component: DashboardComponent },
   { path: 'income', component: IncomeChartComponent },
