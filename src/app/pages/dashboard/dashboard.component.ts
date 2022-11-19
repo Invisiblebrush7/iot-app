@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Firestore, collectionData, collection } from '@angular/fire/firestore';
 
 @Component({
   selector: 'app-dashboard',
@@ -6,7 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  constructor() {}
-
   ngOnInit(): void {}
+
+  users: any;
+
+  constructor(firestore: Firestore) {
+    const _collection = collection(firestore, 'users');
+    this.users = collectionData(_collection);
+  }
 }

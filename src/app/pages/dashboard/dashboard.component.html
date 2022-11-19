@@ -67,4 +67,10 @@
       </div>
     </div>
   </div>
+
+  <ul>
+    <li *ngFor="let users of this.users | async">
+      {{ users.name }}
+    </li>
+  </ul>
 </div>
