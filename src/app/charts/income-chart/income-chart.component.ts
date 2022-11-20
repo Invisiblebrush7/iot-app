@@ -4,6 +4,7 @@ import { BaseChartDirective } from 'ng2-charts';
 import { Subject } from 'rxjs';
 
 import { default as Annotation } from 'chartjs-plugin-annotation';
+import { AuthInfoService } from 'src/app/shared/services/auth-info.service';
 
 @Component({
   selector: 'app-income-chart',
@@ -13,8 +14,11 @@ import { default as Annotation } from 'chartjs-plugin-annotation';
 export class IncomeChartComponent implements OnDestroy {
   destroyed = new Subject<void>();
 
-  constructor() {
+  records: Array<any> = [];
+
+  constructor(private authInfo: AuthInfoService) {
     Chart.register(Annotation);
+    this.records = this.authInfo.getRecordsFromUser();
   }
   ngOnDestroy() {
     this.destroyed.next();
@@ -23,10 +27,11 @@ export class IncomeChartComponent implements OnDestroy {
 
   public lineChartData: ChartConfiguration['data'] = {
     // fill options  // 'start' | 'end' | 'origin' | 'stack' | 'shape'
+    // {"fuerza": "9", "velocidad": "90", "acX":"1", "acY":"1", "acZ":"1", "id":"136", "createdAt:": "2022-11-16T..."}
     datasets: [
       {
-        data: [65, 59, 80, 81, 56, 55, 40],
-        label: 'Series A',
+        data: this.authInfo.getSpecificData(),
+        label: 'Fuerza',
         backgroundColor: 'rgba(148,159,177,0.2)',
         borderColor: 'rgba(148,159,177,1)',
         pointBackgroundColor: 'rgba(148,159,177,1)',
