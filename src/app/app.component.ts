@@ -16,10 +16,20 @@ export class AppComponent implements OnInit {
 
   event: any;
 
-  constructor(public auth: AngularFireAuth, private router: Router) {
+  constructor(public auth: AngularFireAuth, private router: Router) {}
+
+  navbarToggle() {
+    this.sidenavOpened = !this.sidenavOpened;
+  }
+
+  ngOnInit(): void {
     this.event = this.router.events.subscribe((event: any) => {
       if (event instanceof NavigationStart) {
-        if (event.url.includes('login') || event.url.includes('sign_up')) {
+        if (
+          event.url.includes('login') ||
+          event.url.includes('sign_up') ||
+          event.url.includes('logout')
+        ) {
           this.shouldNavbarsBeOpened = false;
         } else {
           this.shouldNavbarsBeOpened = true;
@@ -27,10 +37,4 @@ export class AppComponent implements OnInit {
       }
     });
   }
-
-  navbarToggle() {
-    this.sidenavOpened = !this.sidenavOpened;
-  }
-
-  ngOnInit(): void {}
 }

@@ -4,7 +4,6 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -13,7 +12,7 @@ export class AuthService {
   currentUser: User | null = null;
 
   constructor(
-    public angularFirestores: AngularFirestore,
+    public angularFiresetore: AngularFirestore,
     public auth: AngularFireAuth
   ) {}
 
@@ -37,11 +36,11 @@ export class AuthService {
       uid: user.uid,
     };
     this.currentUser = userData;
-
-    if ((await this.getUserFromCollection()) === null) {
-      this.angularFirestores
+    if (!(await this.userDocsExist(user.email))) {
+      this.angularFiresetore
         .collection('users')
-        .add(userData)
+        .doc(user.email)
+        .set(userData)
         .then((res) => {})
         .catch((e) => {
           console.log(e);
@@ -49,32 +48,23 @@ export class AuthService {
     }
   }
 
-  async getUserFromCollection(): Promise<User | null> {
-    const docsRef = this.angularFirestores
-      .collection('users', (ref) =>
-        ref.where('email', '==', this.currentUser?.email || '')
-      )
-      .get();
-    docsRef.subscribe((ss) => {
-      if (ss.docs.length === 0) {
-        this.currentUser = null;
-        return null;
-      }
-      const user = this.createUserFromObj(ss.docs[0].data());
-      this.currentUser = user;
-      return user;
-    });
-    return null;
-  }
-
-  createUserFromObj(user: any): User {
-    const coolUser: User = {
-      displayName: user.displayName,
-      email: user.email,
-      records: user.records,
-      typeOfUser: user.typeOfUser,
-      uid: user.uid,
-    };
-    return coolUser;
+  async userDocsExist(userEmail: string): Promise<boolean> {
+    const temp = this.angularFiresetore.collection('users').doc(userEmail);
+    temp.ref
+      .get()
+      .then(function (doc) {
+        if (doc.exists) {
+          console.log('Document data:', doc.data());
+          return true;
+        } else {
+          console.log('No such document!');
+          return false;
+        }
+      })
+      .catch(function (error) {
+        console.log('Error getting document:', error);
+        return false;
+      });
+    return false;
   }
 }

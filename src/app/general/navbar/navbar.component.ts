@@ -16,7 +16,6 @@ export class NavbarComponent implements OnInit {
 
   sidenavToggle() {
     this.sidebarIsOpened = !this.sidebarIsOpened;
-    this.sendSidebarStatusEvent.emit(this.sidebarIsOpened);
   }
 
   constructor(private authService: AuthService) {}
