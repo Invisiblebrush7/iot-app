@@ -21,6 +21,7 @@ import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { LogOutSuccesfullComponent } from './pages/log-out-succesfull/log-out-succesfull.component';
+import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { LogOutSuccesfullComponent } from './pages/log-out-succesfull/log-out-su
     LoginComponent,
     SignInComponent,
     LogOutSuccesfullComponent,
+    CapitalizePipe,
   ],
   imports: [
     BrowserModule,

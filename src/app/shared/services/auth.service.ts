@@ -18,6 +18,7 @@ export class AuthService {
 
   logOut() {
     this.auth.signOut();
+    this.currentUser = null;
   }
 
   async login() {
@@ -35,7 +36,9 @@ export class AuthService {
       typeOfUser: 'simple',
       uid: user.uid,
     };
+
     this.currentUser = userData;
+
     if (!(await this.userDocsExist(user.email))) {
       this.angularFiresetore
         .collection('users')
@@ -66,5 +69,9 @@ export class AuthService {
         return false;
       });
     return false;
+  }
+
+  async getcurrentAuthUser() {
+    return this.currentUser;
   }
 }

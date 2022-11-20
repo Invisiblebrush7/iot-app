@@ -4,7 +4,6 @@
       <mat-icon *ngIf="!this.sidebarIsOpened"> menu </mat-icon>
       <mat-icon *ngIf="this.sidebarIsOpened"> close </mat-icon>
     </button>
-    <a class="sidenav-link" routerLink="logout">Logout</a>
 
     <span>Bienvenido</span>
     <span class="spacer"></span>
@@ -24,21 +23,6 @@
 
     <span class="spacer"></span>
 
-    <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon>share</mat-icon>
-    </button>
-
     <div class="user-info">
       <img
         src="https://images.unsplash.com/photo-1578133507770-a35cc3c786e6?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1740&q=80"
@@ -46,9 +30,17 @@
       />
       <mat-divider [vertical]="true"></mat-divider>
       <div class="user-info-text">
-        <h3>Alberto Romano</h3>
-        <p>Admin</p>
+        <h3>{{ this.currentUser?.displayName }}</h3>
+        <p>{{ this.currentUser?.typeOfUser | capitalize }}</p>
       </div>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Logout button"
+        routerLink="logout"
+      >
+        <mat-icon>logout</mat-icon>
+      </button>
     </div>
   </mat-toolbar>
 </nav>

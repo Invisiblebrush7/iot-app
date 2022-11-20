@@ -10,10 +10,7 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 export class DashboardComponent implements OnInit {
   ngOnInit(): void {}
 
-  users: any;
 
-  constructor(firestore: Firestore) {
-    const _collection = collection(firestore, 'users');
-    this.users = collectionData(_collection);
+  constructor() {
   }
 }

@@ -10,19 +10,30 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   sidebarIsOpened: boolean = true;
+  currentUser: User | null = null;
 
   @Output() sendSidebarStatusEvent: EventEmitter<boolean> =
     new EventEmitter<boolean>();
 
   sidenavToggle() {
     this.sidebarIsOpened = !this.sidebarIsOpened;
+    this.sendSidebarStatusEvent.emit(this.sidebarIsOpened);
   }
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService) {
+    this.setCurrentUser();
+  }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.setCurrentUser();
+  }
 
   logout() {
     this.authService.logOut();
+  }
+  async setCurrentUser() {
+    this.authService.getcurrentAuthUser().then((user) => {
+      this.currentUser = user;
+    });
   }
 }
