@@ -20,6 +20,7 @@ import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
 import { getFirestore, provideFirestore } from '@angular/fire/firestore';
 import { environment } from 'src/environments/environment';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
+import { LogOutSuccesfullComponent } from './pages/log-out-succesfull/log-out-succesfull.component';
 
 @NgModule({
   declarations: [
@@ -30,6 +31,7 @@ import { FIREBASE_OPTIONS } from '@angular/fire/compat';
     IncomeChartComponent,
     LoginComponent,
     SignInComponent,
+    LogOutSuccesfullComponent,
   ],
   imports: [
     BrowserModule,

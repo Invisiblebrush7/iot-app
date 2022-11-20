@@ -4,7 +4,7 @@ import { AngularFireAuth } from '@angular/fire/compat/auth';
 import firebase from 'firebase/compat/app';
 
 import { AngularFirestore } from '@angular/fire/compat/firestore';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -14,15 +14,11 @@ export class AuthService {
 
   constructor(
     public angularFirestores: AngularFirestore,
-    public auth: AngularFireAuth,
-    private router: Router
+    public auth: AngularFireAuth
   ) {}
 
   logOut() {
     this.auth.signOut();
-    this.router.navigate(['login'], { replaceUrl: true });
-    this.router.navigate(['/login'], { replaceUrl: true });
-    console.log('WHYYY');
   }
 
   async login() {

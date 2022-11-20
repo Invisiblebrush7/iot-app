@@ -8,6 +8,7 @@ import {
   redirectLoggedInTo,
   redirectUnauthorizedTo,
 } from '@angular/fire/compat/auth-guard';
+import { LogOutSuccesfullComponent } from './pages/log-out-succesfull/log-out-succesfull.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedUsers = () => redirectLoggedInTo(['']);
@@ -32,6 +33,10 @@ const routes: Routes = [
     data: {
       authGuardPipe: redirectLoggedUsers,
     },
+  },
+  {
+    path: 'logout',
+    component: LogOutSuccesfullComponent,
   },
 ];
 

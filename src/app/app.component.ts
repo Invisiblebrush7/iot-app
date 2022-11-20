@@ -13,7 +13,6 @@ export class AppComponent implements OnInit {
   @Input() sidenavOpened: boolean = true;
 
   shouldNavbarsBeOpened: boolean = false;
-  currentRoute: string = '';
 
   event: any;
 
@@ -27,14 +26,6 @@ export class AppComponent implements OnInit {
         }
       }
     });
-  }
-
-  login() {
-    this.auth.signInWithPopup(new firebase.auth.GoogleAuthProvider());
-  }
-
-  logout() {
-    this.auth.signOut();
   }
 
   navbarToggle() {
