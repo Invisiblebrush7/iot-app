@@ -4,6 +4,7 @@
       <mat-icon *ngIf="!this.sidebarIsOpened"> menu </mat-icon>
       <mat-icon *ngIf="this.sidebarIsOpened"> close </mat-icon>
     </button>
+    <a routerLink="/login" (click)="logout()">Logout</a>
 
     <span>Bienvenido</span>
     <span class="spacer"></span>
@@ -13,9 +14,11 @@
         <mat-label>Buscar casas y tickets</mat-label>
         <input matInput placeholder="Ex. 1133" name="query" />
 
-        <button mat-icon-button color="white" aria-label="Search icon button">
-          <mat-icon matSuffix>search</mat-icon>
-        </button>
+        <button
+          mat-icon-button
+          color="white"
+          aria-label="Search icon button"
+        ></button>
       </mat-form-field>
     </form>
 

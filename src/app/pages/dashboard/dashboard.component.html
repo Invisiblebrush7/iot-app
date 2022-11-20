@@ -69,8 +69,8 @@
   </div>
 
   <ul>
-    <li *ngFor="let users of this.users | async">
-      {{ users.name }}
+    <li *ngFor="let user of this.users | async">
+      {{ user.name }}
     </li>
   </ul>
 </div>

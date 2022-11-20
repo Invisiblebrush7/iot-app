@@ -13,11 +13,13 @@ import { NgChartsModule } from 'ng2-charts';
 import { IncomeChartComponent } from './charts/income-chart/income-chart.component';
 import { LoginComponent } from './pages/login/login.component';
 import { FormsModule } from '@angular/forms';
-import { environment } from '../environments/environment';
+import { SignInComponent } from './pages/sign-in/sign-in.component';
 
-import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
-import { provideAuth, getAuth } from '@angular/fire/auth';
-import { provideFirestore, getFirestore } from '@angular/fire/firestore';
+import { AuthService } from './shared/services/auth.service';
+import { provideFirebaseApp, initializeApp } from '@angular/fire/app';
+import { getFirestore, provideFirestore } from '@angular/fire/firestore';
+import { environment } from 'src/environments/environment';
+import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -27,6 +29,7 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     DashboardComponent,
     IncomeChartComponent,
     LoginComponent,
+    SignInComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,10 +40,12 @@ import { provideFirestore, getFirestore } from '@angular/fire/firestore';
     HttpClientModule,
     FormsModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
-    provideAuth(() => getAuth()),
     provideFirestore(() => getFirestore()),
   ],
-  providers: [],
+  providers: [
+    AuthService,
+    { provide: FIREBASE_OPTIONS, useValue: environment.firebase },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

@@ -16,6 +16,7 @@
               type="email"
               placeholder="Email"
               name="email"
+              [(ngModel)]="this.email"
               required
             />
           </mat-form-field>
@@ -27,6 +28,7 @@
               type="password"
               placeholder="Contraseña"
               name="password"
+              [(ngModel)]="this.password"
               required
             />
           </mat-form-field>
@@ -38,6 +40,12 @@
             <a routerLink="sign_up">Regístrate <strong>gratis</strong></a>
           </div>
         </form>
+        <button mat-button color="primary" (click)="login()">
+          Iniciar sesión con Google
+        </button>
+        <button mat-button color="primary" (click)="logout()">
+          Cerrar sesión
+        </button>
       </div>
     </div>
   </div>
