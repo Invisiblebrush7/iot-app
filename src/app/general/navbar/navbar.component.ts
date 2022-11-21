@@ -10,7 +10,8 @@ import { AuthService } from 'src/app/shared/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
   sidebarIsOpened: boolean = true;
-  currentUser: User | null = null;
+  email: string = '';
+  displayName: string = '';
 
   @Output() sendSidebarStatusEvent: EventEmitter<boolean> =
     new EventEmitter<boolean>();
@@ -20,9 +21,7 @@ export class NavbarComponent implements OnInit {
     this.sendSidebarStatusEvent.emit(this.sidebarIsOpened);
   }
 
-  constructor(private authService: AuthService) {
-    this.setCurrentUser();
-  }
+  constructor(private authService: AuthService) {}
 
   ngOnInit(): void {
     this.setCurrentUser();
@@ -32,8 +31,8 @@ export class NavbarComponent implements OnInit {
     this.authService.logOut();
   }
   async setCurrentUser() {
-    this.authService.getcurrentAuthUser().then((user) => {
-      this.currentUser = user;
-    });
+    const { displayName, email, photoURL } = this.authService.getUserData();
+    this.displayName = displayName;
+    this.email = email;
   }
 }

@@ -10,14 +10,12 @@
 
     <form action="/">
       <mat-form-field class="search-form-field" appearance="outline">
-        <mat-label>Buscar casas y tickets</mat-label>
-        <input matInput placeholder="Ex. 1133" name="query" />
+        <mat-label>Buscar registros</mat-label>
+        <input matInput placeholder="Ex. 13-02-2022" name="query" />
 
-        <button
-          mat-icon-button
-          color="white"
-          aria-label="Search icon button"
-        ></button>
+        <button mat-icon-button color="white" aria-label="Search icon button">
+          <mat-icon>search</mat-icon>
+        </button>
       </mat-form-field>
     </form>
 
@@ -30,8 +28,8 @@
       />
       <mat-divider [vertical]="true"></mat-divider>
       <div class="user-info-text">
-        <h3>{{ this.currentUser?.displayName }}</h3>
-        <p>{{ this.currentUser?.typeOfUser | capitalize }}</p>
+        <h3>{{ this.displayName }}</h3>
+        <p>{{ this.email }}</p>
       </div>
       <button
         mat-icon-button

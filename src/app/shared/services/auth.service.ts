@@ -9,7 +9,13 @@ import { AngularFirestore } from '@angular/fire/compat/firestore';
   providedIn: 'root',
 })
 export class AuthService {
-  currentUser: User | null = null;
+  currentUser: User | null = {
+    email: '',
+    displayName: 'User',
+    records: [],
+    typeOfUser: 'simple',
+    uid: '',
+  };
 
   constructor(
     public angularFiresetore: AngularFirestore,
@@ -36,7 +42,6 @@ export class AuthService {
       typeOfUser: 'simple',
       uid: user.uid,
     };
-
     this.currentUser = userData;
 
     if (!(await this.userDocsExist(user.email))) {
@@ -73,5 +78,16 @@ export class AuthService {
 
   async getcurrentAuthUser() {
     return this.currentUser;
+  }
+  getUserData() {
+    const user = JSON.parse(localStorage.getItem('user') || '{ }');
+    if (user.email && user.displayName && user.photoURL) {
+      return {
+        displayName: user.displayName,
+        email: user.email,
+        photoURL: user.photoURL,
+      };
+    }
+    return {};
   }
 }
