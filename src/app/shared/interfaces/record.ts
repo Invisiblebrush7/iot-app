@@ -3,8 +3,8 @@ export interface Record {
   fuerza: number;
   velocidad: number;
   acX: number;
-  axY: number;
+  acY: number;
   axZ: number;
   id: string;
-  createdAt: string;
+  createdAt: Date;
 }

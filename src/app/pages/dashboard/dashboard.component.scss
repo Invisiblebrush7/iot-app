@@ -1,4 +1,9 @@
 .main-content {
+  padding: 0 2rem;
+  p {
+    font-size: 1rem;
+  }
+
   .card {
     display: flex;
     flex-direction: column;
@@ -8,14 +13,29 @@
     box-shadow: 0 0.25rem 0.5rem #e6edef;
 
     .card-head {
-      padding: 1rem 1.5rem;
+      padding: 1rem 1.5rem 0 1.5rem;
       border-bottom: 1px solid #edf1f7;
       font-size: 1rem;
-      font-weight: 600;
+      font-weight: 700;
     }
 
     .card-body {
-      padding: 1rem 1.5rem;
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: center;
+      align-items: stretch;
+      gap: 0.5rem;
+
+      span {
+        margin-top: 0.5rem;
+        font-size: 2.5rem;
+        color: #3f51b5;
+        font-weight: 900;
+      }
+      p {
+        font-size: 1.1rem;
+        font-weight: 300;
+      }
     }
   }
 

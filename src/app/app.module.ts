@@ -22,6 +22,9 @@ import { environment } from 'src/environments/environment';
 import { FIREBASE_OPTIONS } from '@angular/fire/compat';
 import { LogOutSuccesfullComponent } from './pages/log-out-succesfull/log-out-succesfull.component';
 import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
+import { SpeedComponent } from './charts/speed/speed.component';
+import { AccelerationComponent } from './charts/acceleration/acceleration.component';
+import { FrecuencyComponent } from './charts/frecuency/frecuency.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +37,9 @@ import { CapitalizePipe } from './shared/pipes/capitalize.pipe';
     SignInComponent,
     LogOutSuccesfullComponent,
     CapitalizePipe,
+    SpeedComponent,
+    AccelerationComponent,
+    FrecuencyComponent,
   ],
   imports: [
     BrowserModule,

@@ -9,6 +9,9 @@ import {
   redirectUnauthorizedTo,
 } from '@angular/fire/compat/auth-guard';
 import { LogOutSuccesfullComponent } from './pages/log-out-succesfull/log-out-succesfull.component';
+import { SpeedComponent } from './charts/speed/speed.component';
+import { AccelerationComponent } from './charts/acceleration/acceleration.component';
+import { FrecuencyComponent } from './charts/frecuency/frecuency.component';
 
 const redirectUnauthorizedToLogin = () => redirectUnauthorizedTo(['login']);
 const redirectLoggedUsers = () => redirectLoggedInTo(['']);
@@ -21,8 +24,26 @@ const routes: Routes = [
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
   {
-    path: 'income',
+    path: 'fuerza',
     component: IncomeChartComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'velocidad',
+    component: SpeedComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'aceleracion',
+    component: AccelerationComponent,
+    canActivate: [AngularFireAuthGuard],
+    data: { authGuardPipe: redirectUnauthorizedToLogin },
+  },
+  {
+    path: 'frecuencia',
+    component: FrecuencyComponent,
     canActivate: [AngularFireAuthGuard],
     data: { authGuardPipe: redirectUnauthorizedToLogin },
   },
@@ -34,6 +55,7 @@ const routes: Routes = [
       authGuardPipe: redirectLoggedUsers,
     },
   },
+
   {
     path: 'logout',
     component: LogOutSuccesfullComponent,
