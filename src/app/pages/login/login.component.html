@@ -8,7 +8,7 @@
       </div>
 
       <div class="form-container">
-        <form action="/" #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <!-- <form action="/" #f="ngForm" (ngSubmit)="onSubmit(f)">
           <mat-form-field class="mat-form-full-width">
             <mat-label>Email</mat-label>
             <input
@@ -16,6 +16,7 @@
               type="email"
               placeholder="Email"
               name="email"
+              [(ngModel)]="this.email"
               required
             />
           </mat-form-field>
@@ -27,6 +28,7 @@
               type="password"
               placeholder="Contraseña"
               name="password"
+              [(ngModel)]="this.password"
               required
             />
           </mat-form-field>
@@ -37,7 +39,15 @@
             <p>¿No tienes una cuenta?</p>
             <a routerLink="sign_up">Regístrate <strong>gratis</strong></a>
           </div>
-        </form>
+        </form> -->
+        <button mat-button color="primary" (click)="login()">
+          <img
+            src="../../../assets/images/google-icon.png"
+            alt="google icon"
+            srcset=""
+          />
+          Iniciar sesión con Google
+        </button>
       </div>
     </div>
   </div>

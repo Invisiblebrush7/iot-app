@@ -1,0 +1,21 @@
+<div class="main-content">
+  <h1>Frecuencia de entrenamientos</h1>
+  <p>
+    En la siguiente gráfica se representa, a lo largo del tiempo, la frecuencia
+    de tus entrenamientos
+  </p>
+  <div>
+    <div class="outer">
+      <div style="display: block">
+        <canvas
+          baseChart
+          [data]="bubbleChartData"
+          [options]="bubbleChartOptions"
+          [legend]="true"
+          [type]="bubbleChartType"
+        >
+        </canvas>
+      </div>
+    </div>
+  </div>
+</div>

@@ -7,34 +7,8 @@
 
     <span>Bienvenido</span>
     <span class="spacer"></span>
-
-    <form action="/">
-      <mat-form-field class="search-form-field" appearance="outline">
-        <mat-label>Buscar casas y tickets</mat-label>
-        <input matInput placeholder="Ex. 1133" name="query" />
-
-        <button mat-icon-button color="white" aria-label="Search icon button">
-          <mat-icon matSuffix>search</mat-icon>
-        </button>
-      </mat-form-field>
-    </form>
-
+    <h3>Smart Racket</h3>
     <span class="spacer"></span>
-
-    <button
-      mat-icon-button
-      class="example-icon favorite-icon"
-      aria-label="Example icon-button with heart icon"
-    >
-      <mat-icon>favorite</mat-icon>
-    </button>
-    <button
-      mat-icon-button
-      class="example-icon"
-      aria-label="Example icon-button with share icon"
-    >
-      <mat-icon>share</mat-icon>
-    </button>
 
     <div class="user-info">
       <img
@@ -43,9 +17,17 @@
       />
       <mat-divider [vertical]="true"></mat-divider>
       <div class="user-info-text">
-        <h3>Alberto Romano</h3>
-        <p>Admin</p>
+        <h3>{{ this.displayName }}</h3>
+        <p>{{ this.email }}</p>
       </div>
+      <button
+        mat-icon-button
+        class="example-icon favorite-icon"
+        aria-label="Logout button"
+        routerLink="logout"
+      >
+        <mat-icon>logout</mat-icon>
+      </button>
     </div>
   </mat-toolbar>
 </nav>
